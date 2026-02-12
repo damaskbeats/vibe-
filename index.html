@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOCRATES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              accent: ['"Lora"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              oat: 'var(--color-oat)',
+              cream: 'var(--color-cream)',
+              espresso: 'var(--color-espresso)',
+              forest: 'var(--color-forest)',
+              moss: 'var(--color-moss)',
+              clay: 'var(--color-clay)',
+            },
+            borderRadius: {
+              'organic': '2rem',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        /* Warm Theme (Default) */
+        --color-oat: #FDFBF7;
+        --color-cream: #F5F1E9;
+        --color-espresso: #2D1B08;
+        --color-forest: #3A5A40;
+        --color-moss: #588157;
+        --color-clay: #A3B18A;
+      }
+
+      .theme-cool {
+        --color-oat: #F8FAFC;
+        --color-cream: #F1F5F9;
+        --color-espresso: #0F172A;
+        --color-forest: #334155;
+        --color-moss: #64748B;
+        --color-clay: #94A3B8;
+      }
+
+      body {
+        background-color: var(--color-oat);
+        color: var(--color-espresso);
+        transition: background-color 0.5s ease, color 0.5s ease;
+        cursor: url('https://img.icons8.com/ios-filled/24/3A5A40/coffee-beans.png'), auto;
+      }
+      .floating-paper {
+        box-shadow: 0 10px 30px -10px rgba(62, 39, 35, 0.1);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      }
+      .floating-paper:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -15px rgba(62, 39, 35, 0.15);
+      }
+      .rain-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.05;
+        background-image: url('https://www.transparenttextures.com/patterns/pinstripe-dark.png');
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+      @keyframes slideUpFade {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-slide-up-fade {
+        animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes logoEntrance {
+        0% {
+          opacity: 0;
+          transform: scale(0.6) rotate(-20deg) translateY(20px);
+          filter: blur(10px);
+        }
+        60% {
+          transform: scale(1.05) rotate(5deg) translateY(-5px);
+          filter: blur(0px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0deg) translateY(0);
+        }
+      }
+      .animate-logo-entrance {
+        animation: logoEntrance 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .logo-hover {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+      }
+      .logo-hover:hover {
+        transform: scale(1.2) rotate(8deg);
+        filter: drop-shadow(0 10px 15px rgba(62, 39, 35, 0.2));
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
